@@ -3,21 +3,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Ajouter un utilisateur</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h1>Utilisateur</h1>
-	<form method="post" action="addUser">
-		<label>Prenom</label><br/>
-		<input type="text" name="prenom"/><br/>
-		<label>Nom</label><br/>
-		<input type="text" name="nom"/><br/>
-		<label>Login</label><br/>
-		<input type="text" name="login"/><br/>
-		<label>Password</label><br/>
-		<input type="password" name="password"/><br/>
-		<input type="submit" value="Envoyer"/>
-	</form>
+    <div class="container">
+        <h1>Ajouter un utilisateur</h1>
+        <form method="post" action="addUser">
+            <label>Prénom</label>
+            <input type="text" name="prenom" placeholder="Entrez le prénom" required/>
+            
+            <label>Nom</label>
+            <input type="text" name="nom" placeholder="Entrez le nom" required/>
+            
+            <label>Login</label>
+            <input type="text" name="login" placeholder="Entrez le login" required/>
+            
+            <label>Mot de passe</label>
+            <input type="password" name="password" placeholder="Entrez le mot de passe" required/>
+            
+            <input type="submit" value="Ajouter l'utilisateur"/>
+        </form>
+    </div>
 </body>
 </html>
