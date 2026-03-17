@@ -29,13 +29,7 @@ public class addUser extends HttpServlet {
 		String nom = request.getParameter("nom");
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");	
-		 UtilisateurDao utilisateurDao =
-	                (UtilisateurDao) getServletContext().getAttribute("utilisateurDao");
-
-	        if (utilisateurDao == null) {
-	            utilisateurDao = new UtilisateurDao();
-	            getServletContext().setAttribute("utilisateurDao", utilisateurDao);
-	        }
+		UtilisateurDao utilisateurDao = new UtilisateurDao();
 		utilisateurDao.ajouter(prenom, nom, login, password);
 
 		response.sendRedirect("listUser");

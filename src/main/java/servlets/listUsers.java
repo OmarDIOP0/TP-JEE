@@ -18,14 +18,7 @@ public class listUsers extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        UtilisateurDao utilisateurDao =
-                (UtilisateurDao) getServletContext().getAttribute("utilisateurDao");
-
-        if (utilisateurDao == null) {
-            utilisateurDao = new UtilisateurDao();
-            getServletContext().setAttribute("utilisateurDao", utilisateurDao);
-            System.out.println("DAO créé par listUser");
-        }
+		UtilisateurDao utilisateurDao = new UtilisateurDao();
 
         request.setAttribute("utilisateurs", utilisateurDao.lister());
         getServletContext().getRequestDispatcher(LIST_USERS_VIEW).forward(request, response);

@@ -28,9 +28,9 @@ public class updatedUser extends HttpServlet {
         throws ServletException, IOException {
 
         int id = Integer.parseInt(request.getParameter("id"));
-        UtilisateurDao dao = (UtilisateurDao) getServletContext().getAttribute("utilisateurDao");
+        UtilisateurDao utilisateurDao = new UtilisateurDao();
 
-        Utilisateur utilisateur = dao.lister().stream()
+        Utilisateur utilisateur = utilisateurDao.lister().stream()
             .filter(u -> u.getId() == id)
             .findFirst()
             .orElse(null);
@@ -48,9 +48,9 @@ public class updatedUser extends HttpServlet {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
 
-        UtilisateurDao dao = (UtilisateurDao) getServletContext().getAttribute("utilisateurDao");
+        UtilisateurDao utilisateurDao = new UtilisateurDao();
 
-        dao.modifier(id, prenom, nom, login, password);
+        utilisateurDao.modifier(id, prenom, nom, login, password);
 
         response.sendRedirect("listUser");
     }

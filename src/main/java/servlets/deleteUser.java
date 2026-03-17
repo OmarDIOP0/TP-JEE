@@ -17,11 +17,10 @@ public class deleteUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UtilisateurDao dao =
-                (UtilisateurDao) getServletContext().getAttribute("utilisateurDao");
+		UtilisateurDao utilisateurDao = new UtilisateurDao();
 
             int id = Integer.parseInt(request.getParameter("id"));
-            dao.supprimer(id);
+            utilisateurDao.supprimer(id);
 
             response.sendRedirect("listUser");
 	}
