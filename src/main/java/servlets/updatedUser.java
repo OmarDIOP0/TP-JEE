@@ -25,19 +25,15 @@ public class updatedUser extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-
-        int id = Integer.parseInt(request.getParameter("id"));
-        UtilisateurDao utilisateurDao = new UtilisateurDao();
-
-        Utilisateur utilisateur = utilisateurDao.lister().stream()
-            .filter(u -> u.getId() == id)
-            .findFirst()
-            .orElse(null);
-
-        request.setAttribute("utilisateur", utilisateur);
-        getServletContext().getRequestDispatcher(UPDATED_USERS_VIEW).forward(request, response);
-    }
+    	    throws ServletException, IOException {
+    	    int id = Integer.parseInt(request.getParameter("id"));
+    	    UtilisateurDao utilisateurDao = new UtilisateurDao();
+    	    
+    	    Utilisateur utilisateur = utilisateurDao.trouverParId(id);
+    	    
+    	    request.setAttribute("utilisateur", utilisateur);
+    	    getServletContext().getRequestDispatcher(UPDATED_USERS_VIEW).forward(request, response);
+    	}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {

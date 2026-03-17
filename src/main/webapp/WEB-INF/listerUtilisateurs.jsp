@@ -3,7 +3,6 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="beans.Utilisateur" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -42,7 +41,7 @@
 					</td>
 					<td>
 					 <a href="deleteUser?id=${utilisateur.id }">Supprimer</a>
-					 <td>
+					 </td>
             	</tr>
             	</c:forEach>
             </table>
