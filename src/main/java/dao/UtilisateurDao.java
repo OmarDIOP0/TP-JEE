@@ -103,4 +103,28 @@ public class UtilisateurDao {
             e.printStackTrace();
         }
     }
+    public Utilisateur connecter(String login, String password) {
+    	Utilisateur user = null;
+    	try {
+    		Connection conn = DBConnection.getConnection();
+    		String sql = "SELECT * FROM utilisateur where login = ? AND password = ?";
+    		PreparedStatement ps = conn.prepareStatement(sql);
+    		ps.setString(1, login);
+    		ps.setNString(2, password);
+    		ResultSet rs =  ps.executeQuery();
+    		if(rs.next()) {
+    			user = new Utilisateur(
+    					rs.getInt("id"),
+    	                rs.getString("prenom"),
+    	                rs.getString("nom"),
+    	                rs.getString("login"),
+    	                rs.getString("password")
+    					);	
+    		}
+    		conn.close();
+    	}catch (Exception e) {
+            e.printStackTrace();
+        }
+    	return user;
+    }
 }

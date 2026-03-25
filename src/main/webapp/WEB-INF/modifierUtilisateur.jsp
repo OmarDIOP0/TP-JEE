@@ -32,7 +32,7 @@
         </form>
         
         <div style="text-align: center; margin-top: 20px;">
-            <a href="list" class="btn btn-success">Retour à la liste</a>
+            <a href="listUser" class="btn btn-success">Retour à la liste</a>
         </div>
     </div>
 </body>
