@@ -18,7 +18,10 @@
         <button class="btn btn-success">
             <a href="addUser">+ Ajouter un utilisateur</a>
         </button>
-        
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+		    <span>Connecté en tant que : <strong>${sessionScope.utilisateurConnecte.prenom} ${sessionScope.utilisateurConnecte.nom}</strong></span>
+		    <a href="logout" class="btn btn-danger">Se déconnecter</a>
+		</div>
         <h2>Liste des utilisateurs</h2>
         
         <c:choose>
